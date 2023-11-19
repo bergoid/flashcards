@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Flashcards</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>&#11088;</text></svg>">
+
+    <script type="text/javascript" defer>
+        var flashcards_by_answer = [
+          {
+            'answer': 'blue',
+            'flashcards': [
+              'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Cyanerpes_cyaneus_-Diergaarde_Blijdorp%2C_Netherlands-8a.jpg/800px-Cyanerpes_cyaneus_-Diergaarde_Blijdorp%2C_Netherlands-8a.jpg',
+              'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Morpho_didius_Male_Dos_MHNT.jpg/1280px-Morpho_didius_Male_Dos_MHNT.jpg',
+              'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Azurite_-_New_Nevada_Lode%2C_La_Sal%2C_Utah%2C_USA.jpg/1280px-Azurite_-_New_Nevada_Lode%2C_La_Sal%2C_Utah%2C_USA.jpg'
+            ]
+          },
+          {
+            'answer': 'red',
+            'flashcards': [
+              'https://upload.wikimedia.org/wikipedia/commons/d/da/Cardinal.jpg',
+              'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Strawberries.jpg/1280px-Strawberries.jpg',
+              'https://upload.wikimedia.org/wikipedia/commons/f/f0/Ruby_gem.JPG'
+            ]
+          },
+          {
+            'answer': 'yellow',
+            'flashcards': [
+              'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/20130304FeteDuCitronMenton_010.jpg/800px-20130304FeteDuCitronMenton_010.jpg',
+              'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Cornwall_Daffodils.jpg/1280px-Cornwall_Daffodils.jpg',
+              'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Aspen-PopulusTremuloides-2001-09-27.jpg/800px-Aspen-PopulusTremuloides-2001-09-27.jpg'
+            ]
+          }
+        ];
+
+        // ========================================
+        var answers_list = flashcards_by_answer.map(element => element['answer']);
+
+        // ========================================
+        var transform_fba = function(fba)
+        {
+          var fc_list = [];
+
+          for (answer_set of fba)
+          {
+            for (fc_subset of answer_set['flashcards'])
+            {
+              fc_list.push( { 'url': fc_subset, 'answer': answer_set['answer'] } );
+            }
+          }
+
+          return fc_list;
+        }
+
+        // ========================================
+        var flashcard_list = transform_fba(flashcards_by_answer);
+
+        // ========================================
+        var shuffle_array = function(array)
+        {
+            for (let i = array.length - 1; i > 0; i--)
+            {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        // ========================================
+        var shuffled = Array.from({ length: flashcard_list.length }, (_, i) => i);
+        shuffle_array(shuffled);
+
+        // ========================================
+        var index = 0;
+
+        // ========================================
+        var update_image = function()
+        {
+          var image_element = document.getElementById('image');
+          image_element.src = flashcard_list[shuffled[index]].url;
+        }
+
+        // ========================================
+        var on_answer = function(answer)
+        {
+          var result_element = document.getElementsByClassName("result")[0];
+          if (!result_element)
+            return;
+
+          if (flashcard_list[shuffled[index]].answer == answer)
+          {
+            result_element.innerHTML = "GOOD";
+          }
+          else
+          {
+            result_element.innerHTML = "BAD";
+          }
+        }
+
+        // ========================================
+        var on_next = function(answer)
+        {
+          index = (index + 1) % flashcard_list.length;
+
+          if (index == 0)
+          {
+            shuffle_array(shuffled);
+            // console.log("new shuffle:");
+            // console.log(shuffled);
+          }
+
+          update_image();
+        }
+
+        // ========================================
+        var on_load = function()
+        {
+            update_image();
+
+            var menu_element = document.getElementsByClassName("menu")[0];
+
+            if (menu_element)
+            {
+              for (answer of answers_list)
+              {
+                menu_element.innerHTML+=`<a class='menu-item' href='#' onclick='on_answer("${answer}")'>${answer}</a`;
+              }
+            }
+            else
+            {
+              console.log("ERROR: could not obtain menu element.");
+            }
+        }
+
+        // ========================================
+    </script>
+
+    <style type="text/css">
+        body
+        {
+          background-color: #121212;
+        }
+
+        .fb-row {
+          display: flex;
+          flex-direction: row;
+        }
+
+        .fb-column {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .menu-area
+        {
+          flex-grow: 0;
+          height:100vh;
+          font-family: sans-serif;
+          font-size: 1em;
+        }
+
+        .image-area
+        {
+          flex-grow: 1;
+          height:100vh;
+        }
+
+        img
+        {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .menu
+        {
+          flex-grow: 1;
+          justify-content: space-evenly;
+        }
+
+        .result-area
+        {
+          flex-grow: 0;
+          height: 20vh;
+        }
+
+        .menu-item, .menu-item:visited
+        {
+          text-decoration: none;
+          padding: .5em;
+          flex-grow: 1;
+          padding: 1em;
+          color: #aaaaaa;
+          vertical-align: middle;
+        }
+
+        .menu-item:hover
+        {
+          background-color: #aaaaaa;
+          color: #121212;
+        }
+
+        .result
+        {
+          padding: 1em;
+          color: #aaaaaa;
+          font-size: 2em;
+        }
+
+        .next, .next:visited
+        {
+          text-decoration: none;
+          padding: 1em;
+          color: #aaaaaa;
+          font-size: 2em;
+        }
+
+        .next:hover
+        {
+          background-color: #aaaaaa;
+          color: #121212;
+        }
+    </style>
+
+  </head>
+
+  <body onload="on_load();">
+    <div class="fb-row">
+      <div class="image-area">
+        <img id="image" src=""/>
+      </div>
+      <div class="menu-area fb-column">
+        <div class="menu fb-column">
+        </div>
+        <div class="result-area fb-row">
+          <div class="result">Result</div>
+          <a class="next" href="#" onclick="on_next()">&gt;</a>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>
+
