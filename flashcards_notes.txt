@@ -1,0 +1,11 @@
+
+. when menu-item clicked, keep hover style
+    . do this by adding a class
+    . when clicking other item, or when clicking Next, clear the class again from previous one
+        . use: document.getElementsByClassName("selected-item") and remove class from all elements in returned array (normally maximum 1)
+
+. Style result according to good/bad
+    . and show / hide Next button also
+
+
+. menu items in grid?
