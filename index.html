@@ -31,7 +31,63 @@
               'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Cornwall_Daffodils.jpg/1280px-Cornwall_Daffodils.jpg',
               'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Aspen-PopulusTremuloides-2001-09-27.jpg/800px-Aspen-PopulusTremuloides-2001-09-27.jpg'
             ]
-          }
+          },
+          {
+            'answer': 'four',
+              'flashcards': ['https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Panorama_of_the_courtyard_of_the_Great_Mosque_of_Kairouan.jpg/1920px-Panorama_of_the_courtyard_of_the_Great_Mosque_of_Kairouan.jpg']
+          },
+          {
+            'answer': 'five',
+              'flashcards': []
+          },
+          {
+            'answer': 'six',
+              'flashcards': []
+          },
+          {
+            'answer': 'seven',
+              'flashcards': []
+          },
+          {
+            'answer': 'eight',
+              'flashcards': []
+          },
+          {
+            'answer': 'nine',
+              'flashcards': []
+          },
+          {
+            'answer': 'ten',
+              'flashcards': []
+          },
+          {
+            'answer': 'eleven',
+              'flashcards': []
+          },
+          {
+            'answer': 'twelve',
+              'flashcards': []
+          },
+          {
+            'answer': 'thirteen',
+              'flashcards': []
+          },
+          {
+            'answer': 'fourteen',
+              'flashcards': []
+          },
+          {
+            'answer': 'fifteen',
+              'flashcards': []
+          },
+          {
+            'answer': 'sixteen',
+              'flashcards': []
+          },
+          {
+            'answer': 'seventeen',
+              'flashcards': []
+          },
         ];
 
         // ========================================
@@ -211,30 +267,41 @@
 
         .container
         {
-          height:100%;
+          height: 100%;
         }
+
         .menu-area
         {
           flex-grow: 0;
           flex-shrink: 0;
-          flex-basis: 25%;
-          min-height:100%;
+          flex-basis: 40%;
+          min-height: 100%;
           font-family: sans-serif;
-          font-size: 1em;
+          font-size: 1.8em;
+        }
+
+        .image-area
+        {
+          flex-grow: 0;
+          flex-shrink: 0;
+          flex-basis: 60%;
+          object-fit: contain;
+          max-height: 100vh;
         }
 
         img
         {
-          flex-grow: 0;
-          flex-shrink: 0;
-          flex-basis: 75%;
+          width: 100%;
+          height: 100%;
           object-fit: contain;
-          max-height:100vh;
+          max-height: 100vh;
         }
 
         .menu
         {
           flex-grow: 0;
+          display: grid;
+          grid-template-columns: auto auto;
         }
 
         .spacer
@@ -307,7 +374,9 @@
 
   <body onload="on_load();">
     <div class="container fb-row">
-      <img id="image" src=""/>
+      <div class="image-area">
+        <img id="image" src=""/>
+      </div>
       <div class="menu-area fb-column">
         <div class="menu fb-column"></div>
         <div class="spacer"></div>
