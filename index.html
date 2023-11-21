@@ -3,92 +3,154 @@
   <head>
     <meta charset="UTF-8">
     <title>Flashcards</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>&#11088;</text></svg>">
 
     <script type="text/javascript" defer>
-        var flashcards_by_answer = [
-          {
-            'answer': 'blue',
+    var flashcards_by_answer = [
+        {
+            'answer': 'Renaissance',
             'flashcards': [
-              'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Cyanerpes_cyaneus_-Diergaarde_Blijdorp%2C_Netherlands-8a.jpg/800px-Cyanerpes_cyaneus_-Diergaarde_Blijdorp%2C_Netherlands-8a.jpg',
-              'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Morpho_didius_Male_Dos_MHNT.jpg/1280px-Morpho_didius_Male_Dos_MHNT.jpg',
-              'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Azurite_-_New_Nevada_Lode%2C_La_Sal%2C_Utah%2C_USA.jpg/1280px-Azurite_-_New_Nevada_Lode%2C_La_Sal%2C_Utah%2C_USA.jpg'
-            ]
-          },
-          {
-            'answer': 'red',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Lucas_Cranach_the_Elder_-_Apoll_und_Diana_in_waldiger_Landschaft_-_Google_Art_Project.jpg/1392px-Lucas_Cranach_the_Elder_-_Apoll_und_Diana_in_waldiger_Landschaft_-_Google_Art_Project.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Creaci%C3%B3n_de_Ad%C3%A1m.jpg/1280px-Creaci%C3%B3n_de_Ad%C3%A1m.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/El_Descendimiento%2C_by_Rogier_van_der_Weyden%2C_from_Prado_in_Google_Earth.jpg/1392px-El_Descendimiento%2C_by_Rogier_van_der_Weyden%2C_from_Prado_in_Google_Earth.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg/1280px-Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Tiziano_-_Amor_Sacro_y_Amor_Profano_%28Galer%C3%ADa_Borghese%2C_Roma%2C_1514%29.jpg/1280px-Tiziano_-_Amor_Sacro_y_Amor_Profano_%28Galer%C3%ADa_Borghese%2C_Roma%2C_1514%29.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/3/3e/Eyck.hubert.lamb.750pix.jpg'
+            ],
+        },
+        {
+            'answer': 'Barok',
             'flashcards': [
-              'https://upload.wikimedia.org/wikipedia/commons/d/da/Cardinal.jpg',
-              'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Strawberries.jpg/1280px-Strawberries.jpg',
-              'https://upload.wikimedia.org/wikipedia/commons/f/f0/Ruby_gem.JPG'
-            ]
-          },
-          {
-            'answer': 'yellow',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/The_Calling_of_Saint_Matthew-Caravaggo_%281599-1600%29.jpg/1071px-The_Calling_of_Saint_Matthew-Caravaggo_%281599-1600%29.jpg',            'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/La_ronda_de_noche%2C_por_Rembrandt_van_Rijn.jpg/1259px-La_ronda_de_noche%2C_por_Rembrandt_van_Rijn.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Orazio_Gentileschi_-_Davide_e_Golia_%28National_Gallery_of_Ireland%29.jpg/747px-Orazio_Gentileschi_-_Davide_e_Golia_%28National_Gallery_of_Ireland%29.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/d/d3/JosefaObidos1.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Il_castello_di_Bentheim_%28Jacob_Van_Ruisdael%29.jpg/1280px-Il_castello_di_Bentheim_%28Jacob_Van_Ruisdael%29.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/5/5b/Galileo_Galilei_by_Peter_Paul_Rubens.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/La_Tour.jpg/869px-La_Tour.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Bartolom%C3%A9_Esteban_Murillo_-_Saint_Peter_in_Tears_-_Google_Art_Project.jpg/714px-Bartolom%C3%A9_Esteban_Murillo_-_Saint_Peter_in_Tears_-_Google_Art_Project.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Baco%2C_por_Caravaggio.jpg/899px-Baco%2C_por_Caravaggio.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Rubens_-_Judgement_of_Paris.jpg/1280px-Rubens_-_Judgement_of_Paris.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Rembrandt_-_De_Staalmeesters-_het_college_van_staalmeesters_%28waardijns%29_van_het_Amsterdamse_lakenbereidersgilde_-_Google_Art_Project.jpg/1280px-Rembrandt_-_De_Staalmeesters-_het_college_van_staalmeesters_%28waardijns%29_van_het_Amsterdamse_lakenbereidersgilde_-_Google_Art_Project.jpg',
+            ],
+        },
+        {
+            'answer': 'Rococo',
             'flashcards': [
-              'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/20130304FeteDuCitronMenton_010.jpg/800px-20130304FeteDuCitronMenton_010.jpg',
-              'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Cornwall_Daffodils.jpg/1280px-Cornwall_Daffodils.jpg',
-              'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Aspen-PopulusTremuloides-2001-09-27.jpg/800px-Aspen-PopulusTremuloides-2001-09-27.jpg'
-            ]
-          },
-          {
-            'answer': 'four',
-              'flashcards': ['https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Panorama_of_the_courtyard_of_the_Great_Mosque_of_Kairouan.jpg/1920px-Panorama_of_the_courtyard_of_the_Great_Mosque_of_Kairouan.jpg']
-          },
-          {
-            'answer': 'five',
-              'flashcards': []
-          },
-          {
-            'answer': 'six',
-              'flashcards': []
-          },
-          {
-            'answer': 'seven',
-              'flashcards': []
-          },
-          {
-            'answer': 'eight',
-              'flashcards': []
-          },
-          {
-            'answer': 'nine',
-              'flashcards': []
-          },
-          {
-            'answer': 'ten',
-              'flashcards': []
-          },
-          {
-            'answer': 'eleven',
-              'flashcards': []
-          },
-          {
-            'answer': 'twelve',
-              'flashcards': []
-          },
-          {
-            'answer': 'thirteen',
-              'flashcards': []
-          },
-          {
-            'answer': 'fourteen',
-              'flashcards': []
-          },
-          {
-            'answer': 'fifteen',
-              'flashcards': []
-          },
-          {
-            'answer': 'sixteen',
-              'flashcards': []
-          },
-          {
-            'answer': 'seventeen',
-              'flashcards': []
-          },
-        ];
+                'https://upload.wikimedia.org/wikipedia/commons/9/96/LANCRET%2C_Nicolas_-_The_earth.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/f/f8/Fragonard_musical.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/L%27Embarquement_pour_Cyth%C3%A8re%2C_by_Antoine_Watteau%2C_from_C2RMF_retouched.jpg/1280px-L%27Embarquement_pour_Cyth%C3%A8re%2C_by_Antoine_Watteau%2C_from_C2RMF_retouched.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/4/4f/Vig%C3%A9e-Lebrun_Marie_Antoinette_1783.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/1/18/Thomas_Lawrence_Pinkie.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Jacopo_amigoni%2C_il_cantante_farinelli_con_amici%2C_1750-52_circa.JPG/1018px-Jacopo_amigoni%2C_il_cantante_farinelli_con_amici%2C_1750-52_circa.JPG',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Apotheosis_of_Charles_VI_-_Fresco_of_Paul_Troger_%281739%29_-_Imperial_Stair_Case_-_G%C3%B6ttweig_Abbey.jpg/1280px-Apotheosis_of_Charles_VI_-_Fresco_of_Paul_Troger_%281739%29_-_Imperial_Stair_Case_-_G%C3%B6ttweig_Abbey.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/El_Quitasol_%28Goya%29.jpg/1280px-El_Quitasol_%28Goya%29.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/7/7e/Jan_van_Huysum_-_Flowers_in_a_Terracotta_Vase.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Joean_Honor%C3%A9_Fragonard_-_The_Swing.jpg/801px-Joean_Honor%C3%A9_Fragonard_-_The_Swing.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/e/e5/Pompadour6.jpg',
+            ],
+        },
+        {
+            'answer': 'Neoclassicisme',
+            'flashcards': [
+                'https://upload.wikimedia.org/wikipedia/commons/b/bb/David-Oath_of_the_Horatii-1784.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Giovanni_Paolo_Panini_-_Fantasy_View_with_the_Pantheon_and_other_Monuments_of_Ancient_Rome_-_61.62_-_Museum_of_Fine_Arts.jpg/1024px-Giovanni_Paolo_Panini_-_Fantasy_View_with_the_Pantheon_and_other_Monuments_of_Ancient_Rome_-_61.62_-_Museum_of_Fine_Arts.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Wright_of_Derby%2C_The_Orrery.jpg/1024px-Wright_of_Derby%2C_The_Orrery.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Attributs_de_la_peinture%2C_de_la_sculpture_et_de_l%27architecture_-_Anne_Vallayer-Coster.jpg/1017px-Attributs_de_la_peinture%2C_de_la_sculpture_et_de_l%27architecture_-_Anne_Vallayer-Coster.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/e/ee/Kauffmann%2C_Angelica_-_Ariadne_von_Theseus_verlassen_-_prior_to_1782.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Self-Portrait_with_a_Harp_MET_DP164843.jpg/687px-Self-Portrait_with_a_Harp_MET_DP164843.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/1/13/Anne-Louis_Girodet_De_Roucy-Trioson_-_Portrait_of_J._B._Belley%2C_Deputy_for_Saint-Domingue_-_WGA09508.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Gerard_FrancoisPascalSimon-Cupid_Psyche_end.jpg/724px-Gerard_FrancoisPascalSimon-Cupid_Psyche_end.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/a/aa/Vigee-Lebrun%E2%80%93Julie-Lebrun-as-Flora.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Villers_Young_Woman_Drawing.jpg/822px-Villers_Young_Woman_Drawing.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Antoine-Jean_Gros_-_Bonaparte_visitant_les_pestif%C3%A9r%C3%A9s_de_Jaffa.jpg/1024px-Antoine-Jean_Gros_-_Bonaparte_visitant_les_pestif%C3%A9r%C3%A9s_de_Jaffa.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Charpentier%2C_Constance_Marie_-_Melancholy_-_1801.jpg/972px-Charpentier%2C_Constance_Marie_-_Melancholy_-_1801.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Ingres%2C_Napoleon_on_his_Imperial_throne.jpg/623px-Ingres%2C_Napoleon_on_his_Imperial_throne.jpg',
+            ],
+        },
+        {
+            'answer': 'Romantiek',
+            'flashcards': [
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg/800px-Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Cole_Thomas_The_Course_of_Empire_The_Savage_State_1836.jpg/1280px-Cole_Thomas_The_Course_of_Empire_The_Savage_State_1836.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Anne-Louis_Girodet-Trioson_001.jpg/984px-Anne-Louis_Girodet-Trioson_001.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/George_Stubbs_-_A_Lion_Attacking_a_Horse_-_1955.27.1_-_Yale_University_Art_Gallery.jpg/1280px-George_Stubbs_-_A_Lion_Attacking_a_Horse_-_1955.27.1_-_Yale_University_Art_Gallery.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Henry_Fuseli_%281741%E2%80%931825%29%2C_The_Nightmare%2C_1781.jpg/1279px-Henry_Fuseli_%281741%E2%80%931825%29%2C_The_Nightmare%2C_1781.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/El_Tres_de_Mayo%2C_by_Francisco_de_Goya%2C_from_Prado_thin_black_margin.jpg/1280px-El_Tres_de_Mayo%2C_by_Francisco_de_Goya%2C_from_Prado_thin_black_margin.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/JEAN_LOUIS_TH%C3%89ODORE_G%C3%89RICAULT_-_La_Balsa_de_la_Medusa_%28Museo_del_Louvre%2C_1818-19%29.jpg/1024px-JEAN_LOUIS_TH%C3%89ODORE_G%C3%89RICAULT_-_La_Balsa_de_la_Medusa_%28Museo_del_Louvre%2C_1818-19%29.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Eug%C3%A8ne_Delacroix_-_La_libert%C3%A9_guidant_le_peuple.jpg/1280px-Eug%C3%A8ne_Delacroix_-_La_libert%C3%A9_guidant_le_peuple.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/The_Fighting_Temeraire%2C_JMW_Turner%2C_National_Gallery.jpg/1280px-The_Fighting_Temeraire%2C_JMW_Turner%2C_National_Gallery.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Thomas_Cole_-_The_Voyage_of_Life_Childhood%2C_1842_%28National_Gallery_of_Art%29.jpg/1024px-Thomas_Cole_-_The_Voyage_of_Life_Childhood%2C_1842_%28National_Gallery_of_Art%29.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Le_poeme_de_lAme-14-Louis_Janmot-MBA_Lyon-IMG_0497.jpg/1003px-Le_poeme_de_lAme-14-Louis_Janmot-MBA_Lyon-IMG_0497.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Wappers_-_Episodes_from_September_Days_1830_on_the_Place_de_l%E2%80%99H%C3%B4tel_de_Ville_in_Brussels.JPG/1024px-Wappers_-_Episodes_from_September_Days_1830_on_the_Place_de_l%E2%80%99H%C3%B4tel_de_Ville_in_Brussels.JPG',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Shipwrec-vernet.jpg/1024px-Shipwrec-vernet.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/9/93/Joseph_Wright_004.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/GericaultHorseman.jpg/785px-GericaultHorseman.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Eug%C3%A8ne_Delacroix_-_Collision_of_Moorish_Horsemen_-_Walters_376.jpg/950px-Eug%C3%A8ne_Delacroix_-_Collision_of_Moorish_Horsemen_-_Walters_376.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/John_Constable_The_Hay_Wain.jpg/1024px-John_Constable_The_Hay_Wain.jpg',
+            ],
+        },
+        {
+            'answer': 'Realisme',
+            'flashcards': [
+            ],
+        },
+        {
+            'answer': 'Impressionisme',
+            'flashcards': [
+            ],
+        },
+        {
+            'answer': 'Kubisme',
+            'flashcards': [
+            ],
+        },
+        {
+            'answer': 'Futurisme',
+            'flashcards': [
+            ],
+        },
+        {
+            'answer': 'Expressionisme',
+            'flashcards': [
+            ],
+        },
+        {
+            'answer': 'Constructivisme',
+            'flashcards': [
+            ],
+        },
+        {
+            'answer': 'Postimpressionisme',
+            'flashcards': [
+            ],
+        },
+        {
+            'answer': 'Henri de Toulouse-Lautrec',
+            'flashcards': [
+            ],
+        },
+        {
+            'answer': 'Fauvisme',
+            'flashcards': [
+            ],
+        },
+        {
+            'answer': 'Dadaïsme',
+            'flashcards': [
+            ],
+        },
+        {
+            'answer': 'Surrealisme',
+            'flashcards': [
+            ],
+        },
+        {
+            'answer': 'Geometrisch abstracte kunst',
+            'flashcards': [
+            ],
+        }
+    ];
 
         // ========================================
         var answers_list = flashcards_by_answer.map(element => element['answer']);
@@ -241,7 +303,7 @@
             {
               console.log("ERROR: could not obtain menu element.");
             }
-        }
+}
 
         // ========================================
     </script>
@@ -277,7 +339,22 @@
           flex-basis: 40%;
           min-height: 100%;
           font-family: sans-serif;
-          font-size: 1.8em;
+        }
+
+        @media (min-width:320px)
+        {
+            .menu-area
+            {
+              font-size: 0.8em;
+            }
+        }
+
+        @media (min-width:1600px)
+        {
+            .menu-area
+            {
+              font-size: 1.4em;
+            }
         }
 
         .image-area
@@ -304,12 +381,6 @@
           grid-template-columns: auto auto;
         }
 
-        .spacer
-        {
-          flex-grow: 1;
-          flex-shrink: 0;
-        }
-
         .result-area
         {
           flex-grow: 0;
@@ -318,7 +389,6 @@
         .menu-item, .menu-item:visited
         {
           text-decoration: none;
-          padding: .5em;
           flex-grow: 1;
           padding: 1em;
           color: #aaaaaa;
@@ -379,7 +449,6 @@
       </div>
       <div class="menu-area fb-column">
         <div class="menu fb-column"></div>
-        <div class="spacer"></div>
         <div class="result-area fb-row">
           <div class="result"></div>
           <a class="next element-hidden" href="#" onclick="on_next()">&gt;</a>
