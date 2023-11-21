@@ -303,7 +303,10 @@
             {
               console.log("ERROR: could not obtain menu element.");
             }
-        }
+
+            if (elem.requestFullscreen)
+                elem.requestFullscreen();
+}
 
         // ========================================
     </script>
@@ -395,7 +398,6 @@
         .menu-item, .menu-item:visited
         {
           text-decoration: none;
-          padding: .5em;
           flex-grow: 1;
           padding: 1em;
           color: #aaaaaa;
