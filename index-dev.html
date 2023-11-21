@@ -81,27 +81,82 @@
         }
 
         // ========================================
+        var show_next_button = function(show)
+        {
+          next_element = document.getElementsByClassName("next")[0];
+
+          if (show)
+          {
+            next_element.classList.remove("element-hidden");
+          }
+          else
+          {
+            next_element.classList.add("element-hidden");
+          }
+        }
+
+        // ========================================
         var on_answer = function(answer)
         {
+          // Clear selected style from previously selected item
+          var menu_elements = document.getElementsByClassName("menu-item-selected");
+          for (element of menu_elements)
+          {
+            element.classList.remove("menu-item-selected");
+          }
+
+          // Set selected style on currently selected item
+          menu_elements = document.getElementsByClassName("menu-item");
+          for (element of menu_elements)
+          {
+            if (element.innerHTML == answer)
+              element.classList.add("menu-item-selected");
+          }
+
+          // Update result element
           var result_element = document.getElementsByClassName("result")[0];
           if (!result_element)
             return;
 
           if (flashcard_list[shuffled[index]].answer == answer)
           {
-            result_element.innerHTML = "GOOD";
+            result_element.innerHTML = "GOED";
+            result_element.className = "result good";
+            show_next_button(true);
           }
           else
           {
-            result_element.innerHTML = "BAD";
+            result_element.innerHTML = "FOUT";
+            result_element.className = "result bad";
+            show_next_button(false);
           }
         }
 
         // ========================================
         var on_next = function(answer)
         {
+          // Clear selected style from previously selected item
+          var menu_elements = document.getElementsByClassName("menu-item-selected");
+          for (element of menu_elements)
+          {
+            element.classList.remove("menu-item-selected");
+          }
+
+          // Clear result
+          var result_element = document.getElementsByClassName("result")[0];
+          if (result_element)
+          {
+            result_element.innerHTML = "";
+            result_element.className = "result";
+          }
+
+          // Hide next button
+          show_next_button(false);
+
+          // Advance index
           index = (index + 1) % flashcard_list.length;
 
+          // Re-shuffle flashcards if index rolled over
           if (index == 0)
           {
             shuffle_array(shuffled);
@@ -139,8 +194,9 @@
         body
         {
           background-color: #121212;
-          height: 100vh;
+          min-height: 100vh;
           overflow: hidden;
+          margin: 0;
         }
 
         .fb-row {
@@ -153,36 +209,43 @@
           flex-direction: column;
         }
 
+        .container
+        {
+          height:100%;
+        }
         .menu-area
         {
           flex-grow: 0;
-          height:100vh;
+          flex-shrink: 0;
+          flex-basis: 25%;
+          min-height:100%;
           font-family: sans-serif;
           font-size: 1em;
         }
 
-        .image-area
-        {
-          flex-grow: 1;
-          height:100vh;
-        }
-
         img
         {
-            max-width: 100%;
-            max-height: 100%;
+          flex-grow: 0;
+          flex-shrink: 0;
+          flex-basis: 75%;
+          object-fit: contain;
+          max-height:100vh;
         }
 
         .menu
         {
+          flex-grow: 0;
+        }
+
+        .spacer
+        {
           flex-grow: 1;
-          justify-content: space-evenly;
+          flex-shrink: 0;
         }
 
         .result-area
         {
           flex-grow: 0;
-          height: 20vh;
         }
 
         .menu-item, .menu-item:visited
@@ -195,7 +258,7 @@
           vertical-align: middle;
         }
 
-        .menu-item:hover
+        .menu-item:hover, .menu-item.menu-item-selected
         {
           background-color: #aaaaaa;
           color: #121212;
@@ -203,17 +266,29 @@
 
         .result
         {
+          flex-grow: 0;
           padding: 1em;
+        }
+
+        .good
+        {
+          background-color: #008000;
+          color: #121212;
+        }
+
+        .bad
+        {
+          background-color: #800000;
           color: #aaaaaa;
-          font-size: 2em;
         }
 
         .next, .next:visited
         {
+          flex-grow: 1;
           text-decoration: none;
           padding: 1em;
           color: #aaaaaa;
-          font-size: 2em;
+          text-align: center;
         }
 
         .next:hover
@@ -221,21 +296,24 @@
           background-color: #aaaaaa;
           color: #121212;
         }
+
+        .element-hidden
+        {
+          visibility: hidden;
+        }
     </style>
 
   </head>
 
   <body onload="on_load();">
-    <div class="fb-row">
-      <div class="image-area">
-        <img id="image" src=""/>
-      </div>
+    <div class="container fb-row">
+      <img id="image" src=""/>
       <div class="menu-area fb-column">
-        <div class="menu fb-column">
-        </div>
+        <div class="menu fb-column"></div>
+        <div class="spacer"></div>
         <div class="result-area fb-row">
-          <div class="result">Result</div>
-          <a class="next" href="#" onclick="on_next()">&gt;</a>
+          <div class="result"></div>
+          <a class="next element-hidden" href="#" onclick="on_next()">&gt;</a>
         </div>
       </div>
     </div>
